@@ -10,7 +10,7 @@ module.exports = function(RED) {
         var node = this;
         this.on('input', function(msg) {
             isOnline(function(err, online) {
-                msg.timestamp = +new Date().toString();
+                msg.timestamp = +new Date();
                 msg.payload = online;
                 node.send(msg);
 
