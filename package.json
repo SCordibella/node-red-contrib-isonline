@@ -1,0 +1,19 @@
+{
+  "name": "node-red-contrib-isonline",
+  "version": "1.0.0",
+  "description": "Check if is online (wrapping for is-online library)",
+  "author": {
+    "name": "Alexander Pivovarov",
+    "email": "pivovarov@gmail.com"
+  },
+  "license": "ISC",
+  "keywords" : ["node-red"],
+  "node-red" : {
+    "nodes" : {
+      "iIs-Online" : "isonline/isonline.js"
+    }
+  },
+  "dependencies": {
+    "is-online": "^5.1.1"
+  }
+}
