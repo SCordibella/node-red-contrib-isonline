@@ -4,6 +4,7 @@
         color: '#C7E9C0',
         defaults: {
             name: {value:""},
+            url : {value: ""},
             action: {value:"0"}
         },
         inputs:1,
@@ -21,6 +22,10 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
+        <label for="node-input-url"><i class="icon-tag"></i> URL</label>
+        <input type="text" id="node-input-url" placeholder="url">
+    </div>
+    <div class="form-row">
         <label for="node-input-action"><i class="icon-tag"></i>Action</label>
         <select id="node-input-action" placeholder="action">
             <option value="0">True or false</option>
@@ -32,6 +37,7 @@
 
 <script type="text/x-red" data-help-name="Is-Online">
    <p>A node that check Internet connection on receiving a message.</p>
+   <p><b>URL: </b> Check the general Internet connection if blank or check if the specific server is online.
    <p><b>Action:</b>
    <ul>
        <li><b>True or false:</b> returns <i>true</i> or <i>false</i> as <cod>msg.payload</code></li>

@@ -5,10 +5,12 @@ module.exports = function(RED) {
     function NodeIsOnline(config) {
         RED.nodes.createNode(this,config);
         this.action = config.action;
+        this.url = config.url;
         var node = this;
+
         this.on('input', function(msg) {
             msg.timestamp = +new Date();
-            checkInternet(function(online) {
+            checkInternet(node.url, function(online) {
                 msg.online = online;
                 switch (parseInt(node.action)) {
                     case 0:
@@ -32,8 +34,9 @@ module.exports = function(RED) {
     RED.nodes.registerType("Is-Online",NodeIsOnline);
 };
 
-function checkInternet(cb) {
-    require('dns').lookup('google.com',function(err) {
+function checkInternet(url, cb) {
+    var url_to_check = url || 'google.com';
+    require('dns').lookup(url_to_check, function(err) {
         if (err && err.code == "ENOTFOUND") {
             cb(false);
         } else {
