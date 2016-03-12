@@ -7,9 +7,9 @@ module.exports = function(RED) {
         this.action = config.action;
         var node = this;
         this.on('input', function(msg) {
-            msg.online = online;
             msg.timestamp = +new Date();
             checkInternet(function(online) {
+                msg.online = online;
                 switch (parseInt(node.action)) {
                     case 0:
                         msg.payload = online;
