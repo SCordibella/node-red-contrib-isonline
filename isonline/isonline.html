@@ -3,7 +3,8 @@
         category: 'function',
         color: '#C7E9C0',
         defaults: {
-            name: {value:""}
+            name: {value:""},
+            action: {value:"0"}
         },
         inputs:1,
         outputs:1,
@@ -19,9 +20,26 @@
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+    <div class="form-row">
+        <label for="node-input-action"><i class="icon-tag"></i>Action</label>
+        <select id="node-input-action" placeholder="action">
+            <option value="0">True or false</option>
+            <option value="1">Pass through if online</option>
+            <option value="2">Pass through if offline</option>
+        </select>
+    </div>
 </script>
 
 <script type="text/x-red" data-help-name="Is-Online">
-    <p>A node that check internet connection on receiving a message. Returns true or false as the message payload and msg.timestamp contains the time stamp.
-    </p>
+   <p>A node that check Internet connection on receiving a message.</p>
+   <p><b>Action:</b>
+   <ul>
+       <li><b>True or false:</b> returns <i>true</i> or <i>false</i> as <cod>msg.payload</code></li>
+       <li><b>Pass through if online</b>: returns <code>msg</code> if Internet connection is online and
+              <code>null</code> otherwise. <code>msg.payload</code> is unchanged.</li>
+       <li><b>Pass through if offline</b>: returns <code>msg</code> if Internet connection is offline and
+              <code>null</code> otherwise. <code>msg.payload</code> is unchanged.</li>
+    </ul>
+    <p><code>msg.online</code> always contains the connection status</p>
+    <p><code>msg.timestamp</code> contains the timestamp</p>
 </script>

@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-isonline",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Check if is online (wrapping for is-online library)",
   "author": "Alexander Pivovarov <pivovarov@gmail.com>",
   "license": "ISC",
