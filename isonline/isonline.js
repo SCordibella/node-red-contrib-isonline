@@ -31,7 +31,7 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("Is-Online",NodeIsOnline);
+    RED.nodes.registerType("is online",NodeIsOnline);
 };
 
 function SendMessage(node, msg, online) {

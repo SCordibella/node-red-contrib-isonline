@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('Is-Online',{
+    RED.nodes.registerType('is online',{
         category: 'function',
         color: '#C7E9C0',
         defaults: {
@@ -11,36 +11,36 @@
         outputs:1,
         icon: "white-globe.png",
         label: function() {
-            return this.name||"Is Online";
+            return this.name||"is online";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="Is-Online">
+<script type="text/x-red" data-template-name="is online">
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-url"><i class="icon-tag"></i> URL</label>
+        <label for="node-input-url"><i class="icon-globe"></i> URL</label>
         <input type="text" id="node-input-url" placeholder="url">
     </div>
     <div class="form-row">
-        <label for="node-input-action"><i class="icon-tag"></i>Action</label>
+        <label for="node-input-action"><i class="icon-tasks"></i> Action</label>
         <select id="node-input-action" placeholder="action">
             <option value="0">True or false</option>
             <option value="1">Pass through if online</option>
             <option value="2">Pass through if offline</option>
         </select>
     </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" class="paletteLabel" placeholder="Name">
+    </div>
 </script>
 
-<script type="text/x-red" data-help-name="Is-Online">
+<script type="text/x-red" data-help-name="is online">
    <p>A node that check Internet connection on receiving a message.</p>
    <p><b>URL: </b> Check the general Internet connection if blank or check if the specific server is online.
    <p><b>Action:</b>
    <ul>
-       <li><b>True or false:</b> returns <i>true</i> or <i>false</i> as <cod>msg.payload</code></li>
+       <li><b>True or false:</b> returns <i>true</i> or <i>false</i> as <code>msg.payload</code></li>
        <li><b>Pass through if online</b>: returns <code>msg</code> if Internet connection is online and
               <code>null</code> otherwise. <code>msg.payload</code> is unchanged.</li>
        <li><b>Pass through if offline</b>: returns <code>msg</code> if Internet connection is offline and
