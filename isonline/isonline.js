@@ -14,8 +14,9 @@ module.exports = function(RED) {
         this.on('input', function(msg) {
             msg.timestamp = +new Date();
 
+
             var url = msg.url || node.url || 'google.com';
-            msg.url = url;
+            if (!msg.url) msg.url = url;
             var pos = url.indexOf(":");
             var port = "80";
             if (pos > 0) {
