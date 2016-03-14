@@ -13,7 +13,8 @@ Config
 A <a href="http://nodered.org" target="_new">Node-RED</a> node to check if the Internet connection is up. A node that check Internet connection on receiving a message.</p>
   
  <b>URL: </b> Check the general Internet connection if blank or check if the specific server is online.<br>
- <code>msg.url: </code> if set overrides URL in the configuration box.</p><br> 
+   <code>msg.url: </code> if set overrides URL in the configuration box.<br>
+    <code>msg.timeout</code>: if set overrides default timeout value.</p><br>
  <b>Action:</b>
    <ul>
        <li><b>True or false:</b> returns <i>true</i> or <i>false</i> as <cod>msg.payload</code></li>

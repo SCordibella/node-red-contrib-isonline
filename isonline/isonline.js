@@ -15,6 +15,7 @@ module.exports = function(RED) {
             msg.timestamp = +new Date();
 
             var url = msg.url || node.url || 'google.com';
+            msg.url = url;
             var pos = url.indexOf(":");
             var port = "80";
             if (pos > 0) {
@@ -22,7 +23,7 @@ module.exports = function(RED) {
                 url = url.substring(0, pos);
             }
 
-            checkConnection(url, port).then(function() {
+            checkConnection(url, port, msg.timeout).then(function() {
                 SendMessage(node, msg, true);
             }, function(err) {
                 msg.online_error = err.toString();
@@ -57,7 +58,7 @@ function SendMessage(node, msg, online) {
 
 function checkConnection(host, port, timeout) {
     return new Promise(function(resolve, reject) {
-        timeout = timeout || 1000;     // default of 10 seconds
+        timeout = timeout || 1000;     // default of 1 second
         var timer = setTimeout(function() {
             reject("timeout");
             socket.end();
