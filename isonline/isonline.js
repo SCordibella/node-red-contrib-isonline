@@ -25,7 +25,7 @@ module.exports = function(RED) {
             checkConnection(url, port).then(function() {
                 SendMessage(node, msg, true);
             }, function(err) {
-                msg.online_error = err.message;
+                msg.online_error = err.toString();
                 SendMessage(node, msg, false);
             });
 
