@@ -8,13 +8,13 @@ module.exports = function(RED) {
     function NodeIsOnline(config) {
         RED.nodes.createNode(this,config);
         this.action = config.action;
-        this.url = msg.url || config.url;
+
         var node = this;
 
         this.on('input', function(msg) {
             msg.timestamp = +new Date();
 
-            var url = node.url || 'google.com';
+            var url = msg.url || node.url || 'google.com';
             var pos = url.indexOf(":");
             var port = "80";
             if (pos > 0) {
