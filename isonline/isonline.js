@@ -8,7 +8,7 @@ module.exports = function(RED) {
     function NodeIsOnline(config) {
         RED.nodes.createNode(this,config);
         this.action = config.action;
-        this.url = config.url;
+        this.url = msg.url || config.url;
         var node = this;
 
         this.on('input', function(msg) {
@@ -47,6 +47,8 @@ function SendMessage(node, msg, online) {
             break;
         case 2:
             if (online) msg = null;
+            break;
+        case 3:
             break;
     }
 
