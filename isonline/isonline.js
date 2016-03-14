@@ -16,7 +16,7 @@ module.exports = function(RED) {
 
 
             var url = msg.url || node.url || 'google.com';
-            // if (!msg.url) msg.url = url;
+            if (!msg.url) msg.url = url; // generates error?
             var pos = url.indexOf(":");
             var port = "80";
             if (pos > 0) {
