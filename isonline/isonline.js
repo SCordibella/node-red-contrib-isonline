@@ -14,15 +14,15 @@ module.exports = function(RED) {
         this.on('input', function(msg) {
             msg.timestamp = +new Date();
 
-
-            var url = msg.url || node.url || 'google.com';
-            // if (!msg.url) msg.url = url; // generates error?
+            var url = msg.url || config.url || 'google.com';
+            // if (!msg.url) msg.url = url; // can't redefine msg.url
             var pos = url.indexOf(":");
             var port = "80";
             if (pos > 0) {
                 port = url.substring(pos+1);
                 url = url.substring(0, pos);
             }
+
 
             checkConnection(url, port, msg.timeout).then(function() {
                 SendMessage(node, msg, true);
